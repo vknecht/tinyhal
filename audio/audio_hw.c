@@ -83,6 +83,9 @@
 #define ETC_PATH "/system/etc"
 #endif
 
+extern void q6voiced_open();
+extern void q6voiced_close();
+
 #ifdef TINYHAL_COMPRESS_PLAYBACK
 enum async_mode {
     ASYNC_NONE,
@@ -2262,6 +2265,10 @@ static int adev_set_master_volume(struct audio_hw_device *dev, float volume)
 
 static int adev_set_mode(struct audio_hw_device *dev, audio_mode_t mode)
 {
+    if (mode == AUDIO_MODE_IN_CALL)
+        q6voiced_open();
+    else
+        q6voiced_close();
     return 0;
 }
 

@@ -46,7 +46,8 @@ LOCAL_C_INCLUDES += \
 	$(call include-path-for, audio-utils)
 
 LOCAL_SRC_FILES := \
-	audio_hw.c
+	audio_hw.c \
+	q6voiced.c
 
 LOCAL_STATIC_LIBRARIES := \
 	libmedia_helper
